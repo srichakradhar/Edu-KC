@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="text-center">EDU KC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="program-img">
+    <img src="assets/images/logo.jpeg"/>
+  </div>
+  <ion-text>
+    <h3 class="text-center">Community Member</h3>
+    <p class="add-text">Please click on add button to add the details of the program.</p>
+  </ion-text>
+  <ion-card *ngFor="let program of programs">
+    <ion-card-header>
+      <ion-card-subtitle>{{program.category}}</ion-card-subtitle>
+      <ion-card-title>{{program.title}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div class="dec">
+        {{program.desc}}
+      </div>
+      <div class="more">
+        <p class="cost"> <i class="fas fa-money-bill-alt"></i> {{program.fee | currency}}</p>
+        <p class="age"> <i class="fas fa-users"></i>{{program.ageGroup}}</p>
+        <p class="gender">
+          <span *ngFor="let gender of program.gender">
+            <i class="fas fa-{{gender}}"></i>
+          </span>
+        </p>
+        <p class="location"><i class="fas fa-building"></i>{{program.location}}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-button class="text-center" fill="solid" color="primary" expand="block" (click)="openProgramModal()">Add Program</ion-button>
+</ion-content>

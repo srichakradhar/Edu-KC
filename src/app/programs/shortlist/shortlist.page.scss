@@ -1,0 +1,189 @@
+ion-card-content {
+    color: black;
+}
+
+ion-icon {
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+ion-thumbnail {
+    min-width: 5rem;    
+    min-height: 5rem;
+    img {
+        max-width: 5rem;    
+        min-width: 5rem;
+    }
+}
+.program-img {
+    position: relative;
+}
+
+.program-img ion-row{
+    padding:5px;
+    position: absolute;
+    color:white;
+    top: 10px;
+    right:10px;
+    border-radius:  15px 50px;
+    border: 2px solid #f72664;
+}
+
+.program-img ion-row span {
+    padding-top:6px;
+}
+
+.program-detail {
+    position: relative;
+    color: #f72664;
+    font-weight: bold;
+}
+.program-detail .cost {
+    position: absolute;
+    right: 10px;
+}
+
+.location-info {
+    position:relative;
+}
+
+.location-info .category {
+    position: absolute;
+    top:-1px;
+    right:100px;
+    border-radius: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #f72664;
+}
+
+.location-info .gender {
+    position: absolute;
+    right:10px;
+    top:-10px;
+}
+
+ion-card {
+    padding: 10px 10px 20px 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px #bfbfbb;
+    margin-bottom: 25px;
+    // border:2px solid green;
+    border-left: 7px solid green;
+}
+
+ion-card.red {
+    // border:2px solid red;
+    border-left: 7px solid red;
+}
+
+ion-card.yellow {
+    border-left: 7px solid yellowgreen;
+}
+
+.program-item {
+    position: relative;
+}
+
+.program-item .program-detail {
+    color: black;
+    position: absolute;
+    left:90px;
+    top:-10px;
+    width:80%;
+}
+
+.program-detail p {
+    position: absolute;
+}
+
+.program-detail h4 {
+    width: 90%;
+    height: 25px;
+    overflow: hidden;
+}
+
+.program-detail .age {
+    position: absolute;
+    left: 80px;
+    margin-bottom:10px;
+    top: 48px;
+}
+.program-detail .age ion-icon{
+    font-size: 15px;
+    margin-right:0px;
+}
+
+.program-detail .location {
+    position: absolute;
+    left: 0px;
+    top: 45px;
+    margin-bottom:10px;
+}
+
+.fa-users {
+    margin-right:5px;
+    font-size: 15px;
+}
+
+.program-detail .gender {
+    // right: -180px;
+    // top: 30px;
+    top: 25px;
+    left: 200px;
+}
+
+.program-detail .gender.both {
+    left:175px;
+}
+
+
+
+.program-detail .location ion-icon {
+    font-size: 15px;
+    margin-right:0px;
+}
+
+.program-detail .match {
+    position: absolute;
+    top: 76px;
+    // color:green; 
+}
+
+.program-detail .match ion-icon {
+    // font-size: 15px;
+    color: green;
+    margin-right: 0px;
+}
+
+.program-detail .match.red ion-icon {
+    color: red;
+}
+
+.program-detail .match.red ion-icon {
+    color: red;
+}
+
+// .program-detail .match.red {
+//     color: red;
+// }
+
+// .program-detail .match.red {
+//     // color: yellowgreen;
+// }
+.program-detail .cost {
+    position: absolute;
+    top: 70px;
+    right:25px;
+}
+
+.icon {
+    display: inline-block;
+    font-size: 25px;
+    vertical-align: middle;
+}
+   
+.text{
+     display: inline-block;
+     vertical-align: middle;
+}

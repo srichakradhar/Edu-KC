@@ -1,0 +1,26 @@
+.title {
+    margin-left:25px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 50px;
+}
+
+.program-list {
+    position: relative;
+    // top:-35px;
+    bottom:0;
+}
+
+ion-card {
+    border-radius: 10px;
+    box-shadow: 5px 5px #bfbfbb;
+    padding:5px;
+    margin-bottom: 5px;
+    border:1px solid black;
+}
+
+.program-detail {
+    position: absolute;
+    left:85px;
+    top:-10px;
+    color: black;
+}

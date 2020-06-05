@@ -1,0 +1,70 @@
+<ion-app>
+    <ion-menu side="start">
+        <ion-header>
+            <ion-toolbar>
+                <ion-title class="ion-text-center"><h1>Edu KC</h1></ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list *ngIf="userType !== 'Community Member'">
+                <ion-menu-toggle>
+                    <ion-item lines="none" routerLink="/categories/">
+                        <ion-icon name="business" slot="start"></ion-icon>
+                        <ion-label>Programs</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle>
+                    <ion-item lines="none" routerLink="/enrollment">
+                        <ion-icon name="checkbox-outline" slot="start"></ion-icon>
+                        <ion-label>Your Enrollment</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle>
+                    <ion-item lines="none" routerLink="/profile">
+                        <ion-icon name="person-outline" slot="start"></ion-icon>
+                        <ion-label>My Profile</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle>
+                    <ion-item lines="none" routerLink="/actions">
+                        <ion-icon name="file-tray-full" slot="start"></ion-icon>
+                        <ion-label>Actions</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle>
+                    <ion-item lines="none" (click)="onLogout()" button>
+                        <ion-icon name="exit" slot="start"></ion-icon>
+                        <ion-label>Logout</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+            <ion-list *ngIf="userType === 'Community Member'">
+                <ion-menu-toggle>
+                    <ion-item lines="none" routerLink="/community-member/">
+                        <ion-icon name="business" slot="start"></ion-icon>
+                        <ion-label>My Programs</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-menu-toggle>
+                    <ion-item lines="none" routerLink="/profile">
+                        <ion-icon name="person-outline" slot="start"></ion-icon>
+                        <ion-label>My Profile</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <!-- <ion-menu-toggle>
+                    <ion-item lines="none" routerLink="/actions">
+                        <ion-icon name="file-tray-full" slot="start"></ion-icon>
+                        <ion-label>Actions</ion-label>
+                    </ion-item>
+                </ion-menu-toggle> -->
+                <ion-menu-toggle>
+                    <ion-item lines="none" (click)="onLogout()" button>
+                        <ion-icon name="exit" slot="start"></ion-icon>
+                        <ion-label>Logout</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+</ion-app>

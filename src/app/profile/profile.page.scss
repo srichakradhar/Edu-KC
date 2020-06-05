@@ -1,0 +1,23 @@
+ion-title{
+    margin-left: 55px;
+    // font-size: 50px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+ion-item.gender {
+    --border-width: 0;
+    --inner-border-width: 0;
+}
+
+ion-label.gender{
+    padding-top:15px;
+    padding-left: 15px;
+}
+
+.interest {
+    padding: 0px 10px;
+}
+
+.add-btn {
+    border-radius: 25px;
+}

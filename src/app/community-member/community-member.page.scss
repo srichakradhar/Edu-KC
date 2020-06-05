@@ -1,0 +1,53 @@
+.add-text {
+    padding: 5px 10px;
+}
+
+.title {
+    margin-left: 50px;
+}
+
+ion-card {
+    padding-bottom: 20px;
+}
+.text-center {
+    text-align: center;
+    font-weight: bold;
+}
+
+.more {
+    position: relative;
+    margin-top:10px;
+}
+
+.more .cost {
+    position: absolute;
+    color:black;
+    font-weight: bold;
+    left: 10px;
+}
+
+.more .gender {
+    position: absolute;
+    color:black;
+    font-weight: bold;
+    left: 105px;
+}
+
+.more .fa-female, .more .fa-male {
+    font-size: 25px;
+    margin-right:5px;
+}
+
+.more .age {
+    position: absolute;
+    color:black;
+    font-weight: bold;
+    left: 175px;
+}
+
+.more .location {
+    position: absolute;
+    color:black;
+    font-weight: bold;
+    right: 0px;
+}

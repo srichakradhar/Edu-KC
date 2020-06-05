@@ -1,0 +1,30 @@
+.card-title {
+    position: relative;
+}
+.action-title {
+    margin-left:70px;
+}
+
+.card-title .task {
+    position: absolute;
+    right: 10px;
+    top:5px;
+    border: 1px solid  #F72664;
+    background-color: #F72664;
+    color:white;
+    border-radius: 5px;
+    padding:0 2px;
+    font-size: 13px;
+}
+
+.accordian-content {
+    position: relative;
+    color:black;
+    margin-bottom: 10px;
+}
+
+.accordian-content .checkbox {
+    position: absolute;
+    right: 14px;
+    top:5px;
+}

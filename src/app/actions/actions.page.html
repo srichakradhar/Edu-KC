@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="action-title">Actions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header (click)="expandItem(0)">
+      <ion-card-title>
+        <div class="card-title">Action 1
+          <span class="task">0/5</span>
+       </div>
+ 
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <app-accordian expandHeight="100px" [expanded]="items[0].expanded">
+        <div class="accordian-content">
+          {{items[0].title}}
+        </div>
+        <ion-button (click)="initContacts()">Add Contact</ion-button>
+      </app-accordian>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="expandItem(1)">
+      <ion-card-title>
+        <div class="card-title">Action 2
+          <span class="task">0/5</span>
+       </div>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <app-accordian expandHeight="auto" [expanded]="items[1].expanded">
+        <div class="accordian-content">
+          {{items[1].title}}
+        </div>
+        <div class="taks">
+          <ion-list>
+            <ion-item>
+              <ion-label><a href="https://www.ymca.net/">YMCA</a><br /> <a href="tel:1-888-333-9632"> <ion-icon name="call-outline"></ion-icon> 1-888-333-9632</a> </ion-label>
+              <ion-checkbox slot="end"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label><a href="http://www.bgca.org/">Boys & Girls Clubs of America</a><br /><a href="tel:1-800-854-3692">1-888-333-3692</a></ion-label>
+              <ion-checkbox slot="end"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label><a href="www.4-h.org">4-H Council</a></ion-label>
+              <ion-checkbox slot="end"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label><a href="https://girlsinc.org/">Girls, Inc</a> <br /><a href="tel:2125012000">(212) 509-2000</a></ion-label>
+              <ion-checkbox slot="end"></ion-checkbox>
+            </ion-item>
+            <ion-item>
+              <ion-label><a href="http://campfire.org/">Camp Fire USA</a></ion-label>
+              <ion-checkbox slot="end"></ion-checkbox>
+            </ion-item>         
+          </ion-list>  
+        </div>
+     
+      </app-accordian>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="expandItem(2)">
+      <ion-card-title>
+        <div class="card-title">Action 3
+          <span class="task">0/1</span>
+       </div>
+ 
+      </ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+      <app-accordian expandHeight="auto" [expanded]="items[2].expanded">
+        <div class="accordian-content">
+          <ion-label class="label">{{items[2].title}}</ion-label>
+          <ion-checkbox slot="end" class="checkbox"></ion-checkbox>
+        </div>
+        <div class="more-content">
+          Talk to them about what their children and grandchildren do after school. They might be able to tell you about good programs in the area.
+        </div>
+      </app-accordian>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="expandItem(3)">
+      <ion-card-title>
+        <div class="card-title">Action 4
+          <span class="task">0/1</span>
+       </div>
+ 
+      </ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+      <app-accordian expandHeight="100px" [expanded]="items[3].expanded">
+        <div class="accordian-content">
+          <ion-label class="label">{{items[3].title}}</ion-label>
+          <ion-checkbox slot="end" class="checkbox"></ion-checkbox>
+        </div>
+        <div class="more-content">
+          They will know a number of afterschool programs in your area. Also visit www.childcareaware.org.
+        </div>
+      </app-accordian>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header (click)="expandItem(4)">
+      <ion-card-title>
+        <div class="card-title">Action 5
+          <span class="task">0/1</span>
+       </div>
+ 
+      </ion-card-title>
+
+    </ion-card-header>
+
+    <ion-card-content>
+      <app-accordian expandHeight="auto" [expanded]="items[4].expanded">
+        <div class="accordian-content">
+          <ion-label class="label">{{items[4].title}}</ion-label>
+          <ion-checkbox slot="end" class="checkbox"></ion-checkbox>
+        </div>
+        <div class="more-content">
+          They can be found at community centers, settlement houses, community learning centers, full-service schools, museums, and libraries. Look for programs called Lighted Schools, Beacons, Extended Learning Centers, and Supplemental Educational Services. Community arts councils and youth employment programs also might be offering programs after school.
+        </div>
+      </app-accordian>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>
+

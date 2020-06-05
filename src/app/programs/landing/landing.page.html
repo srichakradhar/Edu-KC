@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title class="title">Edu KC</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="program-img">
+    <img src="assets/images/logo.jpeg"/>
+    <!-- <ion-row><ion-icon class="ion-text-center match-icon" name="heart-outline"></ion-icon><span class="match">{{program.relevance + '% match'}}</span></ion-row> -->
+  </div>
+  <div class="program-list">
+    <ion-card *ngFor="let category of categories" (click)="openCategory(category)">
+      <ion-avatar> 
+        <img src="assets/images/cat{{category.id}}.jpeg">
+      </ion-avatar>
+      <div class="program-detail">
+        <h4>{{category.title}}</h4>
+        <p>{{category.count}} programs near by</p>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons (click)="modalClose()" slot="end">
+            <ion-icon name="close"></ion-icon>
+        </ion-buttons>
+        <ion-title>Filter Options</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list-header>
+        <h3>Interest</h3>
+    </ion-list-header>
+    <ion-list>
+        <ion-item *ngFor="let interest of interestObj">
+            <ion-label>{{interest.name}}</ion-label>
+            <ion-checkbox slot="start" checked = {{interest.checked}} #interest (ionChange)="setInterestValue(interest.name)"></ion-checkbox>
+        </ion-item>
+    </ion-list>
+    <ion-list-header>
+        <h3>Budget Range</h3>
+    </ion-list-header>
+    <ion-list>
+        <ion-item>
+            <ion-range [(ngModel)]="budgetValue" min="0" max="10000" step="1000" dual-knobs ticks="true" snaps="true" color="secondary">
+                <ion-label slot="start">0</ion-label>
+                <ion-label slot="end">10K</ion-label>
+            </ion-range>
+        </ion-item>
+    </ion-list>
+    <ion-list class="ion-align-center">
+        <ion-button (click)="modalClose()" color="danger">Cancel</ion-button>
+        <ion-button (click)="filter()" [disabled]="applyDisabled" color="primary">Apply</ion-button>
+    </ion-list>
+</ion-content>

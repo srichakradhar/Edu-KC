@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="categories"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+          <ion-icon name="options" (click)="openFilterOptions()"></ion-icon>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Shortlist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-text color="danger">
+      <p style="padding-left:20px">{{searchMessage}}</p>
+  </ion-text>
+
+  <ion-grid *ngIf="!shortListedPrograms">
+      <ion-row>
+          <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+              <p>Loading the best courses based on your interests...</p>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+  <ion-card *ngFor="let program of shortListedPrograms" (click)="navigateToDetail(program.id)" [ngClass]="program.relevance > 90 ? 'green' :  program.relevance > 75 ? 'yellow' : 'red'">
+      <div class="program-item">
+          <ion-thumbnail slot="start"> 
+              <img [src]="program.avatar">
+          </ion-thumbnail>
+          <div class="program-detail">
+              <h4>{{program.title}}</h4>
+              <div class="first-row">
+                  <div class="location">
+                      <ion-icon name="navigate"></ion-icon>
+                      <ion-label>{{program.distance}} mi</ion-label>
+                  </div>
+                  <div class="age">
+                      <i class="fas fa-users"></i>
+                      <ion-label>{{program.ages}}</ion-label>
+                  </div>
+              </div>
+
+              <p class="gender">
+                  <ion-icon *ngIf="program.campus==='m'" name="man-outline"></ion-icon>
+                  <ion-icon *ngIf="program.campus==='f'" name="woman-outline"></ion-icon>
+              </p>
+              <p class="gender both" *ngIf="program.campus==='m,f'">
+                  <ion-icon class="man" name="man-outline"></ion-icon>
+                  <ion-icon class="woman" name="woman-outline"></ion-icon>
+              </p>
+              <div class="second-row">
+                  <div class="match" [ngClass]="program.relevance > 90 ? 'green' :  program.relevance > 75 ? 'yellow' : 'red'">
+                      <!-- <ion-icon class="icon" name="heart"></ion-icon> -->
+                      <span class="text">{{program.relevance}} % match </span>
+                  </div>
+                  <div class="cost">
+                      <ion-icon class="icon" name="card"></ion-icon>
+                      <span class="text"> {{program.price > 0 ? (program.price | currency) : 'Free' }} </span>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </ion-card>
+</ion-content>

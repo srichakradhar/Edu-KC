@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons (click)="modalClose()" slot="end">
+          <ion-icon name="close"></ion-icon>
+      </ion-buttons>
+      <ion-title>Add Program</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item>
+        <ion-label position="floating">Program Title</ion-label>
+        <ion-input type="text" #title (change)="setTitleValue(title.value)"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea #desc (change)="setCourseDes(desc.value)"></ion-textarea>
+      </ion-item>
+    <ion-item>
+        <ion-label>Program Category</ion-label>
+        <ion-select okText="Okay" cancelText="Dismiss" #category (ionChange)="setCategory(category.value)">
+            <ion-select-option value={{category}} *ngFor="let category of categories">{{category}}</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Program Fee</ion-label>
+        <ion-input type="text" #fee (change)="setFeeValue(fee.value)"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Program Age Group</ion-label>
+        <ion-select #age (ionChange)="setAgeGroup(age.value)">
+            <ion-select-option value={{age}} *ngFor="let age of ages">{{age}}</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-select multiple=true okText="Okay" cancelText="Dismiss" #gender (ionChange)="setGender(gender.value)">
+            <ion-select-option value="male">Male</ion-select-option>
+            <ion-select-option value="female">Female</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Program Location</ion-label>
+        <ion-input type="text" #location (change)="setLocation(location.value)"></ion-input>
+    </ion-item>
+  <ion-list class="ion-align-center">
+      <ion-button (click)="modalClose()" color="danger">Cancel</ion-button>
+      <ion-button (click)="save()" [disabled]="applyDisabled" color="primary">Save</ion-button>
+  </ion-list>
+</ion-content>
