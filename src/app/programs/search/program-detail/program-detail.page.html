@@ -103,10 +103,12 @@
 
                         <ion-row>
                             <ion-col>
-                                <span class="detail-label"><strong>Cost</strong></span>
+                                <span class="detail-label"><strong>Safety</strong></span>
                             </ion-col>
                             <ion-col>
-                                <span class="detail-value"> {{program.price | currency }} </span>
+                                <span class="detail-value" [ngClass]="safetyValue > 60 ? 'good': 'bad'">
+              {{safetyValue > 60 ? 'Good' : 'Bad'}} ({{safetyValue}}%)
+            </span>
                             </ion-col>
                         </ion-row>
 
@@ -135,6 +137,7 @@
                             <span class="number negative">{{(100 - (+program.affordability)) | number:'2.1-2'}}% </span
           ><span class="sentiment-text negative">Negative</span>
                         </div>
+                        <p class="review-count">({{reviewsCount}} Reviews)</p>
                     </div>
 
                     <div class="reviews" *ngIf="reviews">
