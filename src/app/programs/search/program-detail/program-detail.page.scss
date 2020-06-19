@@ -11,43 +11,44 @@ ion-icon {
     position: relative;
 }
 
-.program-img ion-row{
-    padding:5px;
+.program-img ion-row {
+    padding: 5px;
     position: absolute;
-    color:black;
-    background: white;;
+    color: black;
+    background: white;
     top: 10px;
-    right:10px;
-    border-radius:  15px 50px;
+    right: 10px;
+    border-radius: 15px 50px;
     border: 2px solid #f72664;
 }
 
 .program-img .icons {
     position: absolute;
     top: calc(90% - 108px);
-    right:10px;
+    right: 10px;
     // display: inline-block;
     padding: 5px;
     margin: 0px;
     // top: 100px;
     width: 40px;
     height: 40px;
-    color:white;
+    color: white;
     // background-color: orange;
     // right: 100px;
     // position: absolute;
     // border-radius: 50%;
     // border: 1px solid red;
 }
+
 .program-img .icons .age-icon {
     display: inline-block;
-    padding:10px;
+    padding: 10px;
     font-size: 15px;
     margin: 0px;
     top: 100px;
     width: 40px;
     height: 40px;
-    color:white;
+    color: white;
     background-color: #c31424;
     right: 150px;
     font-weight: bold;
@@ -71,10 +72,10 @@ ion-icon {
 }
 
 .shortlist-icon .fas {
-    color:yellow;
+    color: yellow;
 }
 
-.link-icon .fa-link{
+.link-icon .fa-link {
     padding: 8px;
     font-size: 22px;
 }
@@ -87,14 +88,14 @@ ion-icon {
 .program-img .icons .link-icon {
     position: absolute;
     background-color: #c31424;
-    border-radius: 50%; 
+    border-radius: 50%;
     top: 86px;
     width: 40px;
     height: 40px;
     right: 52px;
 }
 
-.program-img .icons > ion-icon {
+.program-img .icons>ion-icon {
     font-size: 10px;
 }
 
@@ -111,11 +112,11 @@ ion-icon {
 .call-icon .fa-phone-alt {
     font-size: 22px;
     // font-weight: 500;
-    padding:8px;
+    padding: 8px;
 }
 
 .program-img ion-row span {
-    padding-top:6px;
+    padding-top: 6px;
 }
 
 .program-detail {
@@ -123,19 +124,20 @@ ion-icon {
     color: #f72664;
     font-weight: bold;
 }
+
 .program-detail .cost {
     position: absolute;
     right: 10px;
 }
 
 .location-info {
-    position:relative;
-    color:#f72664;
+    position: relative;
+    color: #f72664;
 }
 
 .location-info .category {
     position: absolute;
-    right:100px;
+    right: 100px;
     border-radius: 25px;
     padding-left: 5px;
     padding-right: 5px;
@@ -144,18 +146,18 @@ ion-icon {
 
 .location-info .gender {
     position: absolute;
-    right:10px;
+    right: 10px;
 }
 
 .program-title {
-    display:block;
+    display: block;
     text-align: center;
     font-weight: bold;
     margin-bottom: 0px;
 }
 
 .program-rating {
-    margin-top:1px;
+    margin-top: 1px;
     text-align: center;
     font-size: 12px;
 }
@@ -164,15 +166,15 @@ ion-icon {
     height: 85px;
 }
 
-.match .one{
+.match .one {
     position: relative;
 }
 
-.match .two{
+.match .two {
     position: relative;
 }
 
-.match .three{
+.match .three {
     position: relative;
 }
 
@@ -185,20 +187,20 @@ ion-icon {
 .two .text {
     position: absolute;
     left: 10px;
-    top:30px;
+    top: 30px;
     text-transform: capitalize;
 }
 
 .three .text {
     position: absolute;
     left: 10px;
-    top:60px;
-    ;text-transform: capitalize
+    top: 60px;
+    text-transform: capitalize;
 }
 
 .program-img img {
-    width:100%;
-    padding:0px;
+    width: 100%;
+    padding: 0px;
 }
 
 ion-progress-bar {
@@ -207,19 +209,19 @@ ion-progress-bar {
     width: 65%;
     height: 10px;
     border-radius: 10px;
-    top: 5px
+    top: 5px;
 }
 
 .one ion-progress-bar {
-    top: 5px
+    top: 5px;
 }
 
 .two ion-progress-bar {
-    top:35px;
+    top: 35px;
 }
 
 .three ion-progress-bar {
-    top:65px;
+    top: 65px;
 }
 
 .content h6 {
@@ -228,23 +230,23 @@ ion-progress-bar {
 }
 
 .content .content-row {
-    padding:5px 10px;
+    padding: 5px 10px;
 }
 
 .reputation {
     position: relative;
-    height:100px;
+    height: 100px;
 }
 
 .reputation h6 {
-    padding-left:10px;
+    padding-left: 10px;
 }
 
 .sentiment {
     position: absolute;
     text-align: center;
-    width:80%;
-    left:30px;
+    width: 80%;
+    left: 30px;
 }
 
 .sentiment .number {
@@ -252,21 +254,21 @@ ion-progress-bar {
     font-weight: bold;
 }
 
-.sentiment .number.positive{
+.sentiment .number.positive {
     position: absolute;
-    left:5px;
-    color:green;
+    left: 5px;
+    color: green;
 }
 
-.sentiment .number.negative{
+.sentiment .number.negative {
     position: absolute;
-    left:150px;
-    color:red;
+    left: 150px;
+    color: red;
 }
 
 .sentiment .sentiment-text.positive {
-    top:60px;
-    left:35px;
+    top: 60px;
+    left: 35px;
     position: absolute;
     color: green;
     font-weight: bold;
@@ -274,8 +276,8 @@ ion-progress-bar {
 }
 
 .sentiment .sentiment-text.negative {
-    top:60px;
-    left:150px;
+    top: 60px;
+    left: 150px;
     color: red;
     position: absolute;
     font-weight: bold;
@@ -287,21 +289,21 @@ ion-progress-bar {
 }
 
 .reviews ion-card {
-    padding:10px;
+    padding: 10px;
 }
 
-.rating .yellow{
+.rating .yellow {
     color: #c7c716;
-    font-size: 15px;;
+    font-size: 15px;
 }
 
 .rating .star {
-    font-size: 15px;;
+    font-size: 15px;
 }
 
 .review .person {
     font-weight: bold;
-    color:black
+    color: black;
 }
 
 .person .date {
@@ -310,9 +312,41 @@ ion-progress-bar {
 }
 
 .directions {
-    height:250px;
-    margin-bottom:60px;
-    padding:2px;
+    height: 250px;
+    margin-bottom: 60px;
+    padding: 2px;
 }
 
+.helpful {
+    display: flex;
+    text-align: center;
+    border: 1px solid #f72664;
+    border-radius: 50%;
+    /* vertical-align: middle; */
+    height: 75px;
+    margin: 0px auto;
+    width: 70%;
+    // background-color: #f72664;
+    align-items: center;
+    padding: 10px;
+}
 
+.helpful div {
+    flex: 1;
+}
+
+.helpful .dislike {
+    color: red;
+    font-size: 35px;
+}
+
+.helpful .like {
+    color: green;
+    font-size: 35px;
+}
+
+.helpful .helpful-content {
+    flex: 3;
+    font-weight: bold;
+    font-size: 20px;
+}

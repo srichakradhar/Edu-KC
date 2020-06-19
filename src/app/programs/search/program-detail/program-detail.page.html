@@ -20,130 +20,160 @@
             <ion-col size-sm="6" offset-sm="3" class="ion-no-padding">
                 <div class="program-img">
                     <img class="image" [src]="program.avatar" />
-                    <ion-row><ion-icon class="ion-text-center match-icon" name="heart-outline"></ion-icon><span class="match-text">{{program.relevance | number }}% match</span></ion-row>
-                    <div class="icons">
-                        <p class="age-icon">
-                            <i class="fas fa-male"></i>
-                            <i class="fas fa-female"></i>
-                        </p>
-                        <!-- <i class="fas fa-male"></i> -->
-                        <p class="shortlist-icon"><i class="fa-heart" [ngClass]="program.starred ? 'fas': 'fa'" (click)="makeFavorite()"></i></p>
-                        <p class="link-icon">
-                            <i class="fas fa-link"></i>
-                        </p>
-                        <p class="call-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </p>
-                        <!-- <ion-icon class="link-icon" name="link-outline"></ion-icon>
+                    <ion-row>
+                        <ion-icon class="ion-text-center match-icon" name="heart-outline"></ion-icon><span class="match-text">{{program.relevance | number }}% match</span
+            ></ion-row
+          >
+          <div class="icons">
+            <p class="age-icon">
+              <i class="fas fa-male"></i>
+              <i class="fas fa-female"></i>
+            </p>
+            <!-- <i class="fas fa-male"></i> -->
+            <p class="shortlist-icon">
+              <i
+                class="fa-heart"
+                [ngClass]="program.starred ? 'fas': 'fa'"
+                (click)="makeFavorite()"
+              ></i>
+            </p>
+            <p class="link-icon">
+              <i class="fas fa-link"></i>
+            </p>
+            <p class="call-icon">
+              <i class="fas fa-phone-alt"></i>
+            </p>
+            <!-- <ion-icon class="link-icon" name="link-outline"></ion-icon>
                         <ion-icon class="call-icon" name="call-outline"></ion-icon> -->
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row> </ion-row>
+    <div class="title">
+      <h3 class="program-title">{{program.title}}</h3>
+      <p class="program-rating">Avg rating: 4.74 (335 reviews)</p>
+    </div>
+    <div class="match">
+      <div class="one">
+        <span class="text">{{program.topics[0][0]}}</span>
+                        <ion-progress-bar class="prog-bar" color="success" value="{{program.topics[0][1]/100}}"></ion-progress-bar>
+                </div>
+                <div class="two">
+                    <span class="text">{{program.topics[1][0]}}</span>
+                    <ion-progress-bar color="warning" value="{{program.topics[1][1]/100}}"></ion-progress-bar>
+                </div>
+                <div class="three">
+                    <span class="text">{{program.topics[2][0]}}</span>
+                    <ion-progress-bar color="danger" value="{{program.topics[2][1]/100}}"></ion-progress-bar>
+                </div>
+                </div>
+                <div class="content">
+                    <h6>Program Details:</h6>
+                    <div class="content-row">
+                        <ion-row>
+                            <ion-col>
+                                <span class="detail-label"><strong>Age</strong></span>
+                            </ion-col>
+                            <ion-col>
+                                <span class="detail-value"> {{program.ages}} </span>
+                            </ion-col>
+                        </ion-row>
+
+                        <ion-row>
+                            <ion-col>
+                                <span class="detail-label"><strong>Campus Type</strong></span>
+                            </ion-col>
+                            <ion-col>
+                                <span class="detail-value">
+              {{program.campus === 'm' ? 'Boys' : program.campus === 'f' ?
+              'Girls' : 'Co-Education' }}</span
+            >
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <span class="detail-label"><strong>Start Date</strong></span>
+                            </ion-col>
+                            <ion-col>
+                                <span class="detail-value"> 06/10/2020 </span>
+                            </ion-col>
+                        </ion-row>
+
+                        <ion-row>
+                            <ion-col>
+                                <span class="detail-label"><strong>Cost</strong></span>
+                            </ion-col>
+                            <ion-col>
+                                <span class="detail-value"> {{program.price | currency }} </span>
+                            </ion-col>
+                        </ion-row>
+
+                        <ion-row>
+                            <ion-col>
+                                <span class="detail-label"><strong>Location</strong></span>
+                            </ion-col>
+                            <ion-col>
+                                <span class="detail-value">
+              {{program.location ? program.location : 'Beach Road'}}
+            </span>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+
+                    <div class="directions">
+                        <h6>Directions:</h6>
+                        <app-map [location]="program.location==='Multiple Locations' ? '' : program.location"></app-map>
+                        <!-- <p style="padding-left:10px">Map will display here</p> -->
+                    </div>
+                    <div class="reputation">
+                        <h6>Reputation:</h6>
+                        <div class="sentiment">
+                            <span class="number positive">{{program.affordability}}% </span
+          ><span class="sentiment-text positive">Positive</span>
+                            <span class="number negative">{{(100 - (+program.affordability)) | number:'2.1-2'}}% </span
+          ><span class="sentiment-text negative">Negative</span>
+                        </div>
+                    </div>
+
+                    <div class="reviews" *ngIf="reviews">
+                        <h6>Reviews:</h6>
+                        <div class="review">
+                            <ion-card *ngFor="let review of reviews">
+                                <div class="person">
+                                    <span class="name">{{review.name}}</span> |
+                                    <span class="job">{{review.location}}</span>
+                                    <span class="date">{{review.date}}</span>
+                                    <p class="rating">
+                                        <ion-icon name="star" class="star" [class.yellow]="starColors[0]"></ion-icon>
+                                        <ion-icon name="star" class="star" [class.yellow]="starColors[1]"></ion-icon>
+                                        <ion-icon name="star" class="star" [class.yellow]="starColors[2]"></ion-icon>
+                                        <ion-icon name="star" class="star" [class.yellow]="starColors[3]"></ion-icon>
+                                        <ion-icon name="star" class="star" [class.yellow]="starColors[4]"></ion-icon>
+                                    </p>
+                                </div>
+                                <div class="review-content">
+                                    <strong>"{{program.title}} - {{review.tagline}}"</strong>
+                                    <p>
+                                        {{review.content}}
+                                    </p>
+                                </div>
+                            </ion-card>
+                        </div>
+                    </div>
+
+                    <div class="helpful">
+                        <div class="helpful-icons dislike">
+                            <i class="fas fa-thumbs-down"></i>
+                        </div>
+                        <div class="helpful-content">
+                            Is it Helpful ?
+                        </div>
+                        <div class="helpful-icons like">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
                     </div>
                 </div>
-            </ion-col>
-        </ion-row>
-        <ion-row>
-
-        </ion-row>
-        <div class="title">
-            <h3 class="program-title">{{program.title}}</h3>
-            <p class="program-rating">Avg rating: 4.74 (335 reviews)</p>
-        </div>
-        <div class="match">
-            <div class="one">
-                <span class="text">{{program.topics[0][0]}}</span> <ion-progress-bar class="prog-bar" color="success" value="{{program.topics[0][1]/100}}"></ion-progress-bar>
-            </div>
-            <div class="two">
-                <span class="text">{{program.topics[1][0]}}</span> <ion-progress-bar color="warning" value="{{program.topics[1][1]/100}}"></ion-progress-bar>
-            </div>
-            <div class="three">
-                <span class="text">{{program.topics[2][0]}}</span> <ion-progress-bar color="danger" value="{{program.topics[2][1]/100}}"></ion-progress-bar>
-            </div>
-        </div>
-        <div class="content">
-            <h6>Program Details:</h6> 
-            <div class="content-row">
-                <ion-row>
-                    <ion-col>
-                        <span class="detail-label"><strong>Age</strong></span>
-                    </ion-col>
-                    <ion-col>
-                        <span class="detail-value"> {{program.ages}} </span> 
-                    </ion-col>
-                </ion-row>
-    
-                <ion-row>
-                    <ion-col>
-                        <span class="detail-label"><strong>Campus Type</strong></span>
-                    </ion-col>
-                    <ion-col>
-                        <span class="detail-value"> {{program.campus === 'm' ? 'Boys' : program.campus === 'f' ? 'Girls' : 'Co-Education' }}</span> 
-                    </ion-col>
-                </ion-row>
-    
-                <ion-row>
-                    <ion-col>
-                        <span class="detail-label"><strong>Start Date</strong></span>
-                    </ion-col>
-                    <ion-col>
-                        <span class="detail-value"> 06/10/2020 </span> 
-                    </ion-col>
-                </ion-row>
-    
-                <ion-row>
-                    <ion-col>
-                        <span class="detail-label"><strong>Cost</strong></span>
-                    </ion-col>
-                    <ion-col>
-                        <span class="detail-value"> {{program.price | currency }} </span> 
-                    </ion-col>
-                </ion-row>
-    
-                <ion-row>
-                    <ion-col>
-                        <span class="detail-label"><strong>Location</strong></span>
-                    </ion-col>
-                    <ion-col>
-                        <span class="detail-value"> {{program.location ? program.location : 'Beach Road'}} </span> 
-                    </ion-col>
-                </ion-row>
-            </div>
-
-            <div class="directions">
-                <h6>Directions:</h6>
-                <app-map [location]="program.location==='Multiple Locations' ? '' : program.location"></app-map>
-                <!-- <p style="padding-left:10px">Map will display here</p> -->
-            </div>
-            <div class="reputation">
-                <h6>Reputation:</h6>
-                <div class="sentiment">
-                    <span class="number positive">{{program.affordability}}% </span><span class="sentiment-text positive">Positive</span>
-                    <span class="number negative">{{(100 - (+program.affordability))  | number:'2.1-2'}}% </span><span class="sentiment-text negative">Negative</span>
-                </div>
-            </div>
-
-            <div class="reviews" *ngIf="reviews">
-                <h6>Reviews:</h6>
-                <div class="review">
-                    <ion-card *ngFor="let review of reviews">
-                        <div class="person">
-                            <span class="name">{{review.name}}</span> | <span class="job">{{review.location}}</span>
-                            <span class="date">{{review.date}}</span>
-                            <p class=rating>
-                                <ion-icon name="star" class="star" [class.yellow]="starColors[0]"></ion-icon>
-                                <ion-icon name="star" class="star" [class.yellow]="starColors[1]"></ion-icon>
-                                <ion-icon name="star" class="star" [class.yellow]="starColors[2]"></ion-icon>
-                                <ion-icon name="star" class="star" [class.yellow]="starColors[3]"></ion-icon>
-                                <ion-icon name="star" class="star" [class.yellow]="starColors[4]"></ion-icon>
-                            </p>
-                        </div>
-                        <div class="review-content">
-                            <strong>"{{program.title}} - {{review.tagline}}"</strong>
-                            <p>
-                                {{review.content}}
-                            </p>
-                        </div>
-                    </ion-card>
-                </div>
-            </div>
-        </div>
     </ion-grid>
 </ion-content>
