@@ -62,11 +62,11 @@ export class SearchPage implements OnInit {
 
         this.programService.getPrograms(catId).subscribe((data) => {
           const recommendedPrograms = [...data["programs"]];
-          // this.allPrograms = [
-          // recommendedPrograms.slice(0, 24).sort(this.compare),
-          // recommendedPrograms.slice(25, 50).sort(this.compare),
-          // ];
-          this.allPrograms = [recommendedPrograms.slice(0, 24)];
+          this.allPrograms = [
+            recommendedPrograms.slice(0, 24).sort(this.compare),
+            recommendedPrograms.slice(25, 50).sort(this.compare),
+          ];
+          // this.allPrograms = [recommendedPrograms.slice(0, 24)];
           console.log(this.allPrograms);
           loadingEl.dismiss();
         });
