@@ -235,7 +235,7 @@ ion-progress-bar {
 
 .reputation {
     position: relative;
-    height: 100px;
+    height: 125px;
 }
 
 .reputation h6 {
@@ -349,4 +349,20 @@ ion-progress-bar {
     flex: 3;
     font-weight: bold;
     font-size: 20px;
+}
+
+.review-count {
+    position: absolute;
+    top: 100px;
+    left: 30%;
+    color: #5f5454;
+    font-weight: bold;
+}
+
+.detail-value.good {
+    color: green;
+}
+
+.detail-value.bad {
+    color: red;
 }
