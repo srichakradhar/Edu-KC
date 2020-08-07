@@ -21,6 +21,7 @@ export class ProgramDetailPage implements OnInit {
   public starColors: any = [false, false, false, false, false];
   public categoryId: any;
   public reviews = [];
+  public programIndex: number;
   public safetyValue = Math.round(Math.random() * 100);
   public reviewsCount = this.getRandomInt(3000, 5000);
   constructor(
@@ -43,11 +44,14 @@ export class ProgramDetailPage implements OnInit {
       this.programService
         .getProgramDetail(this.categoryId)
         .subscribe((data) => {
-          this.program = data["programs"].find((e) => {
+          this.programIndex = data.findIndex((e) => {
             return e.id === +id;
           });
-          console.log(this.program);
-          this.setReviews(this.program);
+          this.program = data[this.programIndex];
+          // console.log(this.program);
+          if (this.program) {
+            this.setReviews(this.program);
+          }
         });
     });
   }
@@ -70,14 +74,21 @@ export class ProgramDetailPage implements OnInit {
   }
 
   starProgram() {
-    this.programService.makeStarred(this.program.id).subscribe((data) => {
-      console.log(data);
-    });
+    this.programService
+      .makeStarred(this.categoryId, this.programIndex, this.program)
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 
   makeFavorite() {
     this.program["starred"] = this.program["starred"]
       ? !this.program["starred"]
       : true;
+    this.programService
+      .makeStarred(this.categoryId, this.programIndex, this.program["starred"])
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }

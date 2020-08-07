@@ -6,23 +6,28 @@ import { Program } from "./program.model";
   providedIn: "root",
 })
 export class ProgramsService {
-  public URL = "http://localhost:3000/data";
+  public URL = "https://hack-a-roo.firebaseio.com/";
   constructor(private http: HttpClient) {}
 
-  getPrograms(categoryId: Number) {
-    return this.http.get(`${this.URL}/${categoryId}`);
+  getPrograms(categoryId: number) {
+    const catId = categoryId - 1;
+    return this.http.get(`${this.URL}/data/${catId}.json`);
   }
 
-  getCategories():any {
-    return this.http.get(this.URL);
+  getCategories(): any {
+    return this.http.get(`${this.URL}/data.json`);
   }
-  getProgramDetail(id: Number):any {
-    return this.http.get(`${this.URL}/${id}`);
+  getProgramDetail(categoryId: number): any {
+    const catId = categoryId - 1;
+    return this.http.get(`${this.URL}/data/${catId}/programs.json`);
   }
-  
-  makeStarred(id: Number) {
-    return this.http.patch(`${this.URL}/programs/${id}.json`, {
-      starred : true
-    });
+
+  makeStarred(catId: number, programIndex: number, value) {
+    return this.http.patch(
+      `${this.URL}/data/${catId - 1}/programs/${programIndex}.json`,
+      {
+        starred: value,
+      }
+    );
   }
 }

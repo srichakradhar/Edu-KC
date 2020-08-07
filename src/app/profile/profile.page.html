@@ -1,9 +1,10 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="/programs/tabs/search"></ion-back-button>
+            <ion-back-button defaultHref="/categories/landing"></ion-back-button>
         </ion-buttons>
-        <ion-title>{{userData && userData.displayName ? userData.displayName : 'Profile'}}</ion-title>
+        <ion-title>{{userData && userData.displayName ? userData.displayName : 'Profile'}}
+        </ion-title>
         <ion-avatar slot="start" *ngIf="photoUrl">
             <ion-img [src]="photoUrl"></ion-img>
         </ion-avatar>
@@ -28,170 +29,170 @@
                         <ion-input type="email" formControlName="email"></ion-input>
                     </ion-item>
                 </ion-col>
-            </ion-row>            
+            </ion-row>
             <ion-row>
                 <ion-col size-sm="6" offset-sm="3">
                     <ion-item>
                         <ion-label>User Type</ion-label>
                         <ion-select value="Student" okText="Okay" cancelText="Dismiss" #userType (ionChange)="setUserType(userType.value)">
-                          <ion-select-option *ngFor="let userType of userTypes" value="{{userType}}">{{userType}}</ion-select-option>
+                            <ion-select-option *ngFor="let userType of userTypes" value="{{userType}}">{{userType}}</ion-select-option>
                         </ion-select>
-                      </ion-item>
+                    </ion-item>
                 </ion-col>
             </ion-row>
             <ion-item-group formGroupName="address">
-            <ion-item-divider color="primary">
-                <ion-label>
-                    Address
-                </ion-label>
-            </ion-item-divider>
-            
-            <ion-row>
-                <ion-col size-sm="6" offset-sm="3">
-                    <ion-item>
-                        <ion-label position="floating">Street</ion-label>
-                        <ion-input type="text" formControlName="street"></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col size-sm="6" offset-sm="3">
-                    <ion-item>
-                        <ion-label position="floating">City</ion-label>
-                        <ion-input type="text" formControlName="city"></ion-input>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col size-sm="6" offset-sm="3">
-                    <ion-item>
-                        <ion-label position="floating">State</ion-label>
-                        <ion-input type="text" formControlName="state"></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col size-sm="6" offset-sm="3">
-                    <ion-item>
-                        <ion-label position="floating">Country</ion-label>
-                        <ion-input type="text" formControlName="country"></ion-input>
-                    </ion-item>
-                </ion-col>
-                <ion-col size-sm="6" offset-sm="3">
-                    <ion-item>
-                        <ion-label position="floating">Postal Code</ion-label>
-                        <ion-input type="text" formControlName="zipcode"></ion-input>
-                    </ion-item>
-                </ion-col>
-            </ion-row>
-        </ion-item-group>
-        <ion-item-group *ngIf="showDetailForm">
-            <ion-item-divider color="primary">
-                <ion-label>
-                    {{ isParent  ? 'Child Details' :  'Details' }}
-                </ion-label>
-            </ion-item-divider>
-            <ion-grid formArrayName="children" *ngFor="let child of form.get('children').controls;let i=index">
-                <div *ngIf= !isCommunity>
-                <h3 *ngIf="isParent">Child {{i+1}}</h3>
-                <ion-row *ngIf="isParent">
+                <ion-item-divider color="primary">
+                    <ion-label>
+                        Address
+                    </ion-label>
+                </ion-item-divider>
+
+                <ion-row>
                     <ion-col size-sm="6" offset-sm="3">
                         <ion-item>
-                            <ion-label position="floating">Name</ion-label>
-                            <ion-input type="text" autocomplete #childName (change)="setChildName(childName, i)"></ion-input>
+                            <ion-label position="floating">Street</ion-label>
+                            <ion-input type="text" formControlName="street"></ion-input>
                         </ion-item>
                     </ion-col>
-                </ion-row>
-                <ion-radio-group> 
-                    <ion-row>
-                        <ion-col>
-                            <ion-label class="gender">
-                                Gender:
-                            </ion-label>
-                        </ion-col>
-                        <ion-col size-sm="6" offset-sm="2">
-                            <ion-item class="gender">
-                                <ion-icon name="man-outline"></ion-icon>
-                                <ion-radio  slot="start" value="male" (click)="setGenderValue('male', i)"></ion-radio>
-                            </ion-item>
-                        </ion-col>
-                        <ion-col size-sm="6" offset-sm="2">
-                            <ion-item class="gender">
-                                <ion-icon name="woman-outline"></ion-icon>
-                                <ion-radio  slot="start" value="female" (click)="setGenderValue('female', i)"></ion-radio>
-                              </ion-item>
-                        </ion-col>
-                    </ion-row>
-                </ion-radio-group>
-                <ion-row>
                     <ion-col size-sm="6" offset-sm="3">
                         <ion-item>
-                            <ion-label>Age</ion-label>
-                            <ion-select value="brown" okText="Okay" cancelText="Dismiss" #age (ionChange)="setAge(age, i)">
-                              <ion-select-option *ngFor="let age of ages" value="{{age}}">{{age}}</ion-select-option>
-                            </ion-select>
-                          </ion-item>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
-                        <ion-list>
-                            <p class="interest">Interests:</p>
-                            <ion-item *ngFor="let interest of interests">
-                                <ion-label>{{interest}}</ion-label>
-                                <ion-checkbox slot="start" #interest (ionChange)="setInterestValue(interest,i)"></ion-checkbox>
-                            </ion-item>
-                        </ion-list>
-                    </ion-col>
-                </ion-row>
-                <ion-item>
-                    <p class="budget">Budget:</p>
-                    <ion-range min="0" max="10000" step="1000" dual-knobs snaps="true" color="secondary" #budget (ionChange)="setBudgetValue(budget, i)">
-                        <ion-label slot="start">0</ion-label>
-                        <ion-label slot="end">10K</ion-label>
-                    </ion-range>
-                </ion-item>
-            </div>
-            <div *ngIf="isCommunity">
-                <ion-row>
-                    <ion-col size-sm="6" offset-sm="3">
-                        <ion-item>
-                            <ion-label position="floating">Program Name</ion-label>
-                            <ion-input type="text" autocomplete #progName (change)="setProgramName(progName, i)"></ion-input>
+                            <ion-label position="floating">City</ion-label>
+                            <ion-input type="text" formControlName="city"></ion-input>
                         </ion-item>
                     </ion-col>
                 </ion-row>
                 <ion-row>
                     <ion-col size-sm="6" offset-sm="3">
                         <ion-item>
-                            <ion-label position="floating">Program Fee</ion-label>
-                            <ion-input type="text" autocomplete #progFee (change)="setProgramFee(progFee, i)"></ion-input>
+                            <ion-label position="floating">State</ion-label>
+                            <ion-input type="text" formControlName="state"></ion-input>
                         </ion-item>
                     </ion-col>
-                </ion-row>
-                <ion-row>
                     <ion-col size-sm="6" offset-sm="3">
                         <ion-item>
-                            <ion-label position="floating">Program age group:</ion-label>
-                            <ion-select value="Select Age" okText="Okay" cancelText="Dismiss" #ageGroup (ionChange)="setAgeGroup(ageGroup, i)">
-                                <ion-select-option *ngFor="let ageGroup of ageGroups" value="{{ageGroup}}">{{ageGroup}}</ion-select-option>
-                              </ion-select>
+                            <ion-label position="floating">Country</ion-label>
+                            <ion-input type="text" formControlName="country"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col size-sm="6" offset-sm="3">
+                        <ion-item>
+                            <ion-label position="floating">Postal Code</ion-label>
+                            <ion-input type="text" formControlName="zipcode"></ion-input>
                         </ion-item>
                     </ion-col>
                 </ion-row>
-                <ion-row>
-                    <ion-col>
+            </ion-item-group>
+            <ion-item-group *ngIf="showDetailForm">
+                <ion-item-divider color="primary">
+                    <ion-label>
+                        {{ isParent ? 'Child Details' : 'Details' }}
+                    </ion-label>
+                </ion-item-divider>
+                <ion-grid formArrayName="children" *ngFor="let child of form.get('children').controls;let i=index">
+                    <div *ngIf="!isCommunity">
+                        <h3 *ngIf="isParent">Child {{i+1}}</h3>
+                        <ion-row *ngIf="isParent">
+                            <ion-col size-sm="6" offset-sm="3">
+                                <ion-item>
+                                    <ion-label position="floating">Name</ion-label>
+                                    <ion-input type="text" autocomplete #childName (change)="setChildName(childName, i)"></ion-input>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-radio-group>
+                            <ion-row>
+                                <ion-col>
+                                    <ion-label class="gender">
+                                        Gender:
+                                    </ion-label>
+                                </ion-col>
+                                <ion-col size-sm="6" offset-sm="2">
+                                    <ion-item class="gender">
+                                        <ion-icon name="man-outline"></ion-icon>
+                                        <ion-radio slot="start" value="male" (click)="setGenderValue('male', i)"></ion-radio>
+                                    </ion-item>
+                                </ion-col>
+                                <ion-col size-sm="6" offset-sm="2">
+                                    <ion-item class="gender">
+                                        <ion-icon name="woman-outline"></ion-icon>
+                                        <ion-radio slot="start" value="female" (click)="setGenderValue('female', i)"></ion-radio>
+                                    </ion-item>
+                                </ion-col>
+                            </ion-row>
+                        </ion-radio-group>
+                        <ion-row>
+                            <ion-col size-sm="6" offset-sm="3">
+                                <ion-item>
+                                    <ion-label>Age</ion-label>
+                                    <ion-select value="brown" okText="Okay" cancelText="Dismiss" #age (ionChange)="setAge(age, i)">
+                                        <ion-select-option *ngFor="let age of ages" value="{{age}}">{{age}}</ion-select-option>
+                                    </ion-select>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <ion-list>
+                                    <p class="interest">Interests:</p>
+                                    <ion-item *ngFor="let interest of interests">
+                                        <ion-label>{{interest}}</ion-label>
+                                        <ion-checkbox slot="start" #interest (ionChange)="setInterestValue(interest,i)"></ion-checkbox>
+                                    </ion-item>
+                                </ion-list>
+                            </ion-col>
+                        </ion-row>
                         <ion-item>
-                            <ion-label>Category</ion-label>
-                            <ion-select cancelText="Nah" okText="Okay!" #category (ionChange)="setCategory(category, i)">
-                              <ion-select-option value="STEM">Python</ion-select-option>
-                              <ion-select-option value="Arts">Arts</ion-select-option>
-                              <ion-select-option value="Sports">Sports</ion-select-option>
-                            </ion-select>
-                          </ion-item>
-                    </ion-col>
-                </ion-row>
-            </div>
-            </ion-grid>
-            <ion-button class="add-btn" *ngIf="isParent" (click)="addChildForm()">Add Child</ion-button>
-        </ion-item-group>
+                            <p class="budget">Budget:</p>
+                            <ion-range min="0" max="10000 " step="1000 " dual-knobs snaps="true " color="secondary " #budget (ionChange)="setBudgetValue(budget, i) ">
+                                <ion-label slot="start ">0</ion-label>
+                                <ion-label slot="end ">10K</ion-label>
+                            </ion-range>
+                        </ion-item>
+                    </div>
+                    <div *ngIf="isCommunity ">
+                        <ion-row>
+                            <ion-col size-sm="6 " offset-sm="3 ">
+                                <ion-item>
+                                    <ion-label position="floating ">Program Name</ion-label>
+                                    <ion-input type="text " autocomplete #progName (change)="setProgramName(progName, i) "></ion-input>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col size-sm="6 " offset-sm="3 ">
+                                <ion-item>
+                                    <ion-label position="floating ">Program Fee</ion-label>
+                                    <ion-input type="text " autocomplete #progFee (change)="setProgramFee(progFee, i) "></ion-input>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col size-sm="6 " offset-sm="3 ">
+                                <ion-item>
+                                    <ion-label position="floating ">Program age group:</ion-label>
+                                    <ion-select value="Select Age " okText="Okay " cancelText="Dismiss " #ageGroup (ionChange)="setAgeGroup(ageGroup, i) ">
+                                        <ion-select-option *ngFor="let ageGroup of ageGroups " value="{{ageGroup}} ">{{ageGroup}}</ion-select-option>
+                                    </ion-select>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <ion-item>
+                                    <ion-label>Category</ion-label>
+                                    <ion-select cancelText="Nah " okText="Okay! " #category (ionChange)="setCategory(category, i) ">
+                                        <ion-select-option value="STEM ">Python</ion-select-option>
+                                        <ion-select-option value="Arts ">Arts</ion-select-option>
+                                        <ion-select-option value="Sports ">Sports</ion-select-option>
+                                    </ion-select>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+                </ion-grid>
+                <ion-button class="add-btn" *ngIf="isParent " (click)="addChildForm() ">Add Child</ion-button>
+            </ion-item-group>
         </ion-grid>
     </form>
-    <ion-button (click)="submitDetails()" [disabled]="!form.valid" expand="full" shape="round" color="primary">Update</ion-button>
+    <ion-button (click)="submitDetails() " [disabled]="!form.valid " expand="full " shape="round " color="primary ">Update</ion-button>
 </ion-content>
